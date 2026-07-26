@@ -1,0 +1,10 @@
+# Aliases
+alias ls='eza '
+alias la='eza -l -A --git --icons'
+alias ll='eza -l --git --icons'
+alias gs='git status'
+alias gc='git commit'
+alias gp='git push'
+alias mcroot='sudo mc'
+alias update='sudo dnf upgrade --refresh'
+alias cls='clear'

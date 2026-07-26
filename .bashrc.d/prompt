@@ -1,0 +1,21 @@
+# Git prompt support
+if [ -f /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
+    source /usr/share/git-core/contrib/completion/git-prompt.sh
+fi
+
+# Colors
+GREEN='\[\e[32m\]'
+ORANGE='\[\e[38;5;208m\]'
+BLUE='\[\e[34m\]'
+YELLOW='\[\e[33m\]'
+RESET='\[\e[0m\]'
+
+# Show :( on command failure
+function prompt_status() {
+    local status=$?
+    if [ $status -ne 0 ]; then
+        printf "\033[31m :(\033[0m"
+    fi
+}
+
+PS1="${GREEN}\u${ORANGE}@\h${RESET}:${BLUE}\w${RESET}${YELLOW}\$(__git_ps1 ' (%s)')${RESET}\$(prompt_status)\$ "
